@@ -14,33 +14,56 @@ h1{
     font-size: 300%;
 }
 
-.board img{
+/* .board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.board > img {
+    width: 70%;
+} */
+
+/* .board img{
     width: 50%;
     margin-top: 3%;
     margin-left: 25%;
     margin-right: 25%;
     position: absolute;
-}
+} */
+
 
 .circlesContainer{
     border: 2px solid red;
     position: absolute;
-    width: 44%;
+    width: 60%;
     height: 66%;
     margin-top: 3%;
-    margin-left: 28%;
+    margin-left: 30%;
     align-self:center;
 
-
+justify-content: center;
     display: flex;
-
-   
-
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
-.circlesContainer > div > img{
-    position: left;
-    margin: 35px;
+.circlesContainer > img{
+    /* position: left; */
+    /* margin: 0 !important; */
     z-index: 1;
     width: 10%;
+}
+
+.circlesContainer img {
+    margin: 0;
+}
+
+.circleElement{
+    margin: 5px;
+    z-index: 1;
+    width: 13%;
+    height: 13%;
 }
