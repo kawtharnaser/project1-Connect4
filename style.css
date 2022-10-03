@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #F5D391;
+}
+
+h1{
+    margin-top: 2%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 300%;
+}
+
+.board img{
+    width: 50%;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 25%;
+    position: absolute;
+}
+
+.circlesContainer{
+    border: 2px solid red;
+    position: absolute;
+    width: 44%;
+    height: 66%;
+    margin-top: 3%;
+    margin-left: 28%;
+    align-self:center;
+
+
+    display: flex;
+
+   
+
+}
+
+.circlesContainer > div > img{
+    position: left;
+    margin: 35px;
+    z-index: 1;
+    width: 10%;
+}
