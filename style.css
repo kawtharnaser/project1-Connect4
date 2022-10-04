@@ -14,7 +14,7 @@ h1{
     font-size: 300%;
 }
 
-/* .board {
+.board {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@ h1{
 
 .board > img {
     width: 70%;
-} */
+}
 
 /* .board img{
     width: 50%;
@@ -39,9 +39,9 @@ h1{
     border: 2px solid red;
     position: absolute;
     width: 60%;
-    height: 66%;
-    margin-top: 3%;
-    margin-left: 30%;
+    height: 90%;
+    /* margin-top: 3%; */
+    /* margin-left: 30%; */
     align-self:center;
 
 justify-content: center;
