@@ -46,26 +46,23 @@ const generateCircleElements =()=>{
 
 function clickCircle(event){
     console.log("bloop")
-    let circleToBeChanged = event.target.id
 
+    let circleUnderneathId = String((Number(event.target.id)+7))
+    let circleToBeChanged = document.getElementById(circleUnderneathId)
+    
+    
     if (player1Turn == true)
     {
-        event.target.src = "./pinkCircle.svg"
+        circleToBeChanged.children[0].src= "./pinkCircle.svg"
         player1Turn = false
-        console.log(event.target.id)
-        // circleToBeChanged = Number(event.target.id) + 7
-        // console.log(circleToBeChanged)
+
     }
 
 
 
     else{
-        event.target.src = "./orangeCircle.svg"
+        circleToBeChanged.children[0].src= "./orangeCircle.svg"
         player1Turn = true
-        console.log(event.target.id)
-        // circleToBeChanged = Number(event.target.id) + 7
-        // console.log(circleToBeChanged)
-
     }
 
 }
