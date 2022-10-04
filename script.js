@@ -47,7 +47,8 @@ const generateCircleElements =()=>{
 function clickCircle(event){
     console.log("bloop")
     let clickedCircleId =event.target.id 
-    if(clickedCircleId == 0 || 7|| 14 || 21 || 28 || 35){
+    for(let i=0; i<=35; i=i+7)
+    if(clickedCircleId == i){
     let circleUnderneathId = String(35)
     let circleToBeChanged = document.getElementById(circleUnderneathId)
 
@@ -71,8 +72,6 @@ function clickCircle(event){
     
 
 }
-
-
 
 
 
