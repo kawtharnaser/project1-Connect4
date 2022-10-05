@@ -3,6 +3,15 @@ let circlesContainer = document.querySelector(".circlesContainer")
 
 let player1Turn = true
 
+let board = [
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+]
+
 
 const generateCircleElements =()=>{
     console.log("generating circles")
@@ -26,7 +35,7 @@ const generateCircleElements =()=>{
           imgElement.setAttribute("row", r);
           circleElement.appendChild(imgElement);
           imgElement.addEventListener("click", clickCircle);
-          console.log(circleElement);
+        //   console.log(circleElement);
           // step4: append it to an existing element (its container)
           circlesContainer.appendChild(circleElement);
         // }
@@ -61,10 +70,10 @@ const generateCircleElements =()=>{
 
 
     //create an array called connect4EmptyArray, with 42 empty elements
-    let connect4EmptyArray = new Array(42);
-    connect4EmptyArray.fill("");
-    console.log(connect4EmptyArray)
-    console.log(connect4EmptyArray.length)
+    // let connect4EmptyArray = new Array(42);
+    // connect4EmptyArray.fill("");
+    // console.log(connect4EmptyArray)
+    // console.log(connect4EmptyArray.length)
 
 
 
@@ -130,7 +139,11 @@ function clickCircle(event){
     if (player1Turn == true)
     {
         circleToBeChanged.children[0].src= "./pinkCircle.svg"
-        connect4EmptyArray[bottomCircleId] = "player1"
+        // connect4EmptyArray[bottomCircleId] = "player1"
+        let firstIndex = bottomCircleId[2]
+        let secondIndex = bottomCircleId[0]
+        board[firstIndex][secondIndex] = "player1"
+        circleToBeChanged
         player1Turn = false
     }
 
@@ -138,9 +151,13 @@ function clickCircle(event){
 
     else{
         circleToBeChanged.children[0].src= "./orangeCircle.svg"
-        connect4EmptyArray[bottomCircleId] = "player2"
+        // connect4EmptyArray[bottomCircleId] = "player2"
+        let firstIndex = bottomCircleId[2]
+        let secondIndex = bottomCircleId[0]
+        board[firstIndex][secondIndex] = "player2"
         player1Turn = true
     }
+    console.log('board',board)
 
 
     winningConditions()
@@ -151,6 +168,15 @@ function clickCircle(event){
 
 
     function winningConditions(){
+        //check horizontal locations for a win
+        for (let c=0; c < 7; c++){
+            for (let r=0; r< 6; r++){
+                if (board[r][c] == 'player1' && board[r][c+1] == 'player1' && board[r][c +2] == 'player1' && board[r][c+3] == 'player1'){
+                    console.log('player 1 wins!')
+                }
+            }
+        }
+        
 
     }
 
