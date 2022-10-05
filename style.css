@@ -22,16 +22,17 @@ h1{
 .board {
     display: flex;
     flex: 1;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 2%;
+    border: 2px solid yellowgreen;
     
 }
 
 .board > img {
-    width: 80%;
+    width: 90%;
     height: 80%;
-    margin-top: 0%;
+    /* margin-top: 0%; */
 
 }
 
@@ -39,9 +40,9 @@ h1{
 .circlesContainer{
     border: 2px solid red;
     position: absolute;
-    width: 50%;
+    width: 45%;
     align-self:center;
-    justify-content: center;
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -62,7 +63,9 @@ h1{
     margin: 3px;
     z-index: 1;
     width: 12%;
-    height: 13%;
+    margin-right: 1%;
+    margin-left: 1%;
+    padding: 0px;
 }
 
 .button{
@@ -90,6 +93,8 @@ h1{
     align-items: center;
     flex-direction: column;
     position: right;
+    margin-top: 25%;
+    margin-right: 5%;
     width: 200px;
     height: 200px;
     border: 2px solid black;
