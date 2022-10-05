@@ -57,6 +57,13 @@ const generateCircleElements =()=>{
     let row7 = ["35","36","37","38","39","40","41"]
 
 
+    //create an array called connect4EmptyArray, with 42 empty elements
+    let connect4EmptyArray = new Array(42);
+    connect4EmptyArray.fill("");
+    console.log(connect4EmptyArray)
+    console.log(connect4EmptyArray.length)
+
+
 
 
 function clickCircle(event){
@@ -120,19 +127,28 @@ function clickCircle(event){
     if (player1Turn == true)
     {
         circleToBeChanged.children[0].src= "./pinkCircle.svg"
+        connect4EmptyArray[buttomCircleId] = "player1"
         player1Turn = false
-
     }
 
 
 
     else{
         circleToBeChanged.children[0].src= "./orangeCircle.svg"
+        connect4EmptyArray[buttomCircleId] = "player2"
         player1Turn = true
     }
-    // let circleUnderneathId = String((Number(event.target.id)))
-    // let circleToBeChanged = document.getElementById(circleUnderneathId)
+
+
+    winningConditions()
     
+    }
+
+
+
+
+    function winningConditions(){
+
     }
 
 
