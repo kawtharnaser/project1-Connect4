@@ -4,39 +4,34 @@ let circlesContainer = document.querySelector(".circlesContainer")
 let player1Turn = true
 
 
-
-
-
-
-
-
-
 const generateCircleElements =()=>{
     console.log("generating circles")
     //generate 42 circles
-    for(let i=0; i<42; i++){
-        
-        //step 1: create a new div
-        let circleElement = document.createElement("div")
-        let imgElement = document.createElement("img")
-        //step 2: give it an id
-        circleElement.id = i
-        //step3: give it a class (style)
-        circleElement.classList.add("circleElement")
-        imgElement.src="./circleElement.svg"
-        imgElement.style.height = '80%'
-        imgElement.style.width = '80%'
-        imgElement.id = i
-        circleElement.appendChild(imgElement)
-
-        imgElement.addEventListener("click", clickCircle)
-        console.log(circleElement)
-        
-        // step4: append it to an existing element (its container)
-        circlesContainer.appendChild(circleElement)
-
-
-    }
+    for (let r = 0; r < 6; r++) {
+        for (let c = 0; c < 7; c++) {
+          //step 1: create a new div
+          let circleElement = document.createElement("div");
+          let imgElement = document.createElement("img");
+          //step 2: give it an id
+          circleElement.id = `${c}-${r}`;
+          circleElement.setAttribute("col", c);
+          circleElement.setAttribute("row", r);
+          //step3: give it a class (style)
+          circleElement.classList.add("circleElement");
+          imgElement.src = "./circleElement.svg";
+          imgElement.style.height = "80%";
+          imgElement.style.width = "80%";
+          imgElement.id = `${c}-${r}`;
+          imgElement.setAttribute("col", c);
+          imgElement.setAttribute("row", r);
+          circleElement.appendChild(imgElement);
+          imgElement.addEventListener("click", clickCircle);
+          console.log(circleElement);
+          // step4: append it to an existing element (its container)
+          circlesContainer.appendChild(circleElement);
+        // }
+      }
+    };
 }
 
     let column1 = ["0","7","14","21","28","35"]
@@ -68,58 +63,60 @@ const generateCircleElements =()=>{
 
 function clickCircle(event){
     console.log("you clicked on a circle")
-    let clickedCircleId =event.target.id 
-    let buttomCircleId
+    let clickedCircleId =event.target.id[0]
+    let bottomCircleId
     let circleToBeChanged
 
-
+let i=5
     //checking for 1st column
-    if(column1.includes(clickedCircleId)){
-        buttomCircleId = column1.slice(-1)
-        circleToBeChanged = document.getElementById(buttomCircleId)
-        column1.pop()
+    if(clickedCircleId == 0){
+        bottomCircleId = 0+"-"+i
+        i--
+        console.log(bottomCircleId)
+        circleToBeChanged = document.getElementById(bottomCircleId)
+       
     }
 
    //checking for 2nd column
    if(column2.includes(clickedCircleId)){
-    buttomCircleId = column2.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column2.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column2.pop()
 }
 
    //checking for 3rd column
    if(column3.includes(clickedCircleId)){
-    buttomCircleId = column3.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column3.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column3.pop()
 }
 
    //checking for 4th column
    if(column4.includes(clickedCircleId)){
-    buttomCircleId = column4.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column4.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column4.pop()
 }
 
 
    //checking for 5th column
    if(column5.includes(clickedCircleId)){
-    buttomCircleId = column5.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column5.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column5.pop()
 }
 
    //checking for 6th column
    if(column6.includes(clickedCircleId)){
-    buttomCircleId = column6.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column6.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column6.pop()
 }
 
    //checking for 7th column
    if(column7.includes(clickedCircleId)){
-    buttomCircleId = column7.slice(-1)
-    circleToBeChanged = document.getElementById(buttomCircleId)
+    bottomCircleId = column7.slice(-1)
+    circleToBeChanged = document.getElementById(bottomCircleId)
     column7.pop()
 }
 
@@ -127,7 +124,7 @@ function clickCircle(event){
     if (player1Turn == true)
     {
         circleToBeChanged.children[0].src= "./pinkCircle.svg"
-        connect4EmptyArray[buttomCircleId] = "player1"
+        connect4EmptyArray[bottomCircleId] = "player1"
         player1Turn = false
     }
 
@@ -135,7 +132,7 @@ function clickCircle(event){
 
     else{
         circleToBeChanged.children[0].src= "./orangeCircle.svg"
-        connect4EmptyArray[buttomCircleId] = "player2"
+        connect4EmptyArray[bottomCircleId] = "player2"
         player1Turn = true
     }
 
