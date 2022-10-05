@@ -12,6 +12,8 @@ let board = [
     ['','','','','','',''],
 ]
 
+let winner =""
+
 
 const generateCircleElements =()=>{
     console.log("generating circles")
@@ -174,36 +176,44 @@ function clickCircle(event){
                 // check horizontal locations for a win / player1
                 if (board[c+3] != undefined && board[r][c] == "player1" && board[r][c+1] == "player1" && board[r][c +2] == "player1" && board[r][c+3] == "player1"){
                     console.log("player 1 wins!")
+                    winner = "player1"
                 }
                 //check vertical locations for a win / player1
                 if (board[r+3] != undefined && board[r][c] == "player1" && board[r+1][c] == "player1" && board[r+2][c] == "player1" && board[r+3][c] == "player1"){
                     console.log("player1 wins!")
+                    winner = "player1"
                 }
                 //check for positive slope locations for a win / player1
                 if (board[r+3] != undefined && board[r][c] == "player1" && board[r+1][c+1] == "player1" && board[r+2][c+2] == "player1" && board[r+3][c+3] == "player1"){
                     console.log("player1 wins!")
+                    winner = "player1"
                 }
                 //check for negative slope locations for a win / player1
                 if (board[c+3] != undefined && board[r-3] && board[r][c] == "player1" && board[r-1][c+1] == "player1" && board[r-2][c+2] == "player1" && board[r-3][c+3] == "player1"){
                     console.log("player1 wins!")
+                    winner = "player1"
                 }
 
 
                 // check horizontal locations for a win / player2
                 if (board[c+3] != undefined && board[r][c] == 'player2' && board[r][c+1] == 'player2' && board[r][c +2] == 'player2' && board[r][c+3] == 'player2'){
                     console.log('player 2 wins!')
+                    winner = "player2"
                 }
                 //check vertical locations for a win / player2
                 if (board[r+3] != undefined && board[r][c] == "player2" && board[r+1][c] == "player2" && board[r+2][c] == "player2" && board[r+3][c] == "player2"){
                     console.log("player2 wins!")
+                    winner = "player2"
                 }
                 //check for positive slope locations for a win / player1
                 if (board[r+3] != undefined && board[r][c] == "player2" && board[r+1][c+1] == "player2" && board[r+2][c+2] == "player2" && board[r+3][c+3] == "player2"){
                     console.log("player2 wins!")
+                    winner = "player2"
                 }
                 //check for negative slope locations for a win / player1
                 if (board[c+3] != undefined && board[r-3] && board[r][c] == "player2" && board[r-1][c+1] == "player2" && board[r-2][c+2] == "player2" && board[r-3][c+3] == "player2"){
                     console.log("player2 wins!")
+                    winner = "player2"
                 }
         }
         
