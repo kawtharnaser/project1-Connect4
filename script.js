@@ -34,22 +34,30 @@ const generateCircleElements =()=>{
     };
 }
 
-    let column1 = ["0","7","14","21","28","35"]
-    let column2 = ["1","8","15","22","29","36"]
-    let column3 = ["2","9","16","23","30","37"]
-    let column4 = ["3","10","17","24","31","38"]
-    let column5 = ["4","11","18","25","32","39"]
-    let column6 = ["5","12","19","26","33","40"]
-    let column7 = ["6","13","20","27","34","41"]
+    // let column1 = ["0","7","14","21","28","35"]
+    // let column2 = ["1","8","15","22","29","36"]
+    // let column3 = ["2","9","16","23","30","37"]
+    // let column4 = ["3","10","17","24","31","38"]
+    // let column5 = ["4","11","18","25","32","39"]
+    // let column6 = ["5","12","19","26","33","40"]
+    // let column7 = ["6","13","20","27","34","41"]
+
+    column1 = [0,1,2,3,4,5]
+    column2 = [0,1,2,3,4,5]
+    column3 = [0,1,2,3,4,5]
+    column4 = [0,1,2,3,4,5]
+    column5 = [0,1,2,3,4,5]
+    column6 = [0,1,2,3,4,5]
+    column7 = [0,1,2,3,4,5]
 
 
-    let row1 = ["0","1","2","3","4","5"]
-    let row2 = ["6","7","8","9","10","11"]
-    let row3 = ["12","13","14","15","16","17"]
-    let row4 = ["18","19","20","21","22","23"]
-    let row5 = ["24","25","26","27","28","28"]
-    let row6 = ["29","30","31","32","33","34"]
-    let row7 = ["35","36","37","38","39","40","41"]
+    // let row1 = ["0","1","2","3","4","5"]
+    // let row2 = ["6","7","8","9","10","11"]
+    // let row3 = ["12","13","14","15","16","17"]
+    // let row4 = ["18","19","20","21","22","23"]
+    // let row5 = ["24","25","26","27","28","28"]
+    // let row6 = ["29","30","31","32","33","34"]
+    // let row7 = ["35","36","37","38","39","40","41"]
 
 
     //create an array called connect4EmptyArray, with 42 empty elements
@@ -67,55 +75,53 @@ function clickCircle(event){
     let bottomCircleId
     let circleToBeChanged
 
-let i=5
     //checking for 1st column
     if(clickedCircleId == 0){
-        bottomCircleId = 0+"-"+i
-        i--
-        console.log(bottomCircleId)
+        bottomCircleId = 0+"-"+column1.slice(-1)
         circleToBeChanged = document.getElementById(bottomCircleId)
+        column1.pop()
        
     }
 
    //checking for 2nd column
-   if(column2.includes(clickedCircleId)){
-    bottomCircleId = column2.slice(-1)
+   if(clickedCircleId == 1){
+    bottomCircleId = 1+"-"+column2.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column2.pop()
 }
 
    //checking for 3rd column
-   if(column3.includes(clickedCircleId)){
-    bottomCircleId = column3.slice(-1)
+   if(clickedCircleId == 2){
+    bottomCircleId = 2+"-"+column3.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column3.pop()
 }
 
    //checking for 4th column
-   if(column4.includes(clickedCircleId)){
-    bottomCircleId = column4.slice(-1)
+   if(clickedCircleId == 3){
+    bottomCircleId = 3+"-"+column4.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column4.pop()
 }
 
 
    //checking for 5th column
-   if(column5.includes(clickedCircleId)){
-    bottomCircleId = column5.slice(-1)
+   if(clickedCircleId == 4){
+    bottomCircleId = 4+"-"+column5.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column5.pop()
 }
 
    //checking for 6th column
-   if(column6.includes(clickedCircleId)){
-    bottomCircleId = column6.slice(-1)
+   if(clickedCircleId ==5){
+    bottomCircleId = 5+"-"+column6.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column6.pop()
 }
 
    //checking for 7th column
-   if(column7.includes(clickedCircleId)){
-    bottomCircleId = column7.slice(-1)
+   if(clickedCircleId ==6){
+    bottomCircleId = 6+"-"+column7.slice(-1)
     circleToBeChanged = document.getElementById(bottomCircleId)
     column7.pop()
 }
