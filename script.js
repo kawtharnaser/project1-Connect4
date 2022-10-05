@@ -22,18 +22,13 @@ const generateCircleElements =()=>{
         //step 2: give it an id
         circleElement.id = i
         //step3: give it a class (style)
-        // circleElement.src="circleElement.svg"
-        // circleElement.style.backgroundRepeat = 'no-repeat'
-        // circleElement.style.backgroundImage="url('./circleElement.svg')"
-        // circleElement.style.backgroundSize="contain"
         circleElement.classList.add("circleElement")
         imgElement.src="./circleElement.svg"
-        imgElement.style.height = '13%'
-        imgElement.style.width = '13%'
+        imgElement.style.height = '80%'
+        imgElement.style.width = '80%'
         imgElement.id = i
         circleElement.appendChild(imgElement)
 
-        // circleElement.style.marginRight = "30px"
         imgElement.addEventListener("click", clickCircle)
         console.log(circleElement)
         
@@ -44,13 +39,73 @@ const generateCircleElements =()=>{
     }
 }
 
+    let column1 = ["0","7","14","21","28","35"]
+    let column2 = ["1","8","15","22","29","36"]
+    let column3 = ["2","9","16","23","30","37"]
+    let column4 = ["3","10","17","24","31","38"]
+    let column5 = ["4","11","18","25","32","39"]
+    let column6 = ["5","12","19","26","33","40"]
+    let column7 = ["6","13","20","27","34","41"]
+
+
+
+
 function clickCircle(event){
-    console.log("bloop")
+    console.log("you clicked on a circle")
     let clickedCircleId =event.target.id 
-    for(let i=0; i<=35; i=i+7)
-    if(clickedCircleId == i){
-    let circleUnderneathId = String(35)
-    let circleToBeChanged = document.getElementById(circleUnderneathId)
+    let buttomCircleId
+    let circleToBeChanged
+
+
+    //checking for 1st column
+    if(column1.includes(clickedCircleId)){
+        buttomCircleId = column1.slice(-1)
+        circleToBeChanged = document.getElementById(buttomCircleId)
+        column1.pop()
+    }
+
+   //checking for 2nd column
+   if(column2.includes(clickedCircleId)){
+    buttomCircleId = column2.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column2.pop()
+}
+
+   //checking for 3rd column
+   if(column3.includes(clickedCircleId)){
+    buttomCircleId = column3.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column3.pop()
+}
+
+   //checking for 4th column
+   if(column4.includes(clickedCircleId)){
+    buttomCircleId = column4.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column4.pop()
+}
+
+
+   //checking for 5th column
+   if(column5.includes(clickedCircleId)){
+    buttomCircleId = column5.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column5.pop()
+}
+
+   //checking for 6th column
+   if(column6.includes(clickedCircleId)){
+    buttomCircleId = column6.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column6.pop()
+}
+
+   //checking for 7th column
+   if(column7.includes(clickedCircleId)){
+    buttomCircleId = column7.slice(-1)
+    circleToBeChanged = document.getElementById(buttomCircleId)
+    column7.pop()
+}
 
 
     if (player1Turn == true)
@@ -66,12 +121,10 @@ function clickCircle(event){
         circleToBeChanged.children[0].src= "./orangeCircle.svg"
         player1Turn = true
     }
-    }
     // let circleUnderneathId = String((Number(event.target.id)))
     // let circleToBeChanged = document.getElementById(circleUnderneathId)
     
-
-}
+    }
 
 
 
