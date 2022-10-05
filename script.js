@@ -1,5 +1,6 @@
 let emptyBoard = document.getElementsByClassName("board")
 let circlesContainer = document.querySelector(".circlesContainer")
+let gameStatusBox = document.querySelector(".gameStatusBox")
 
 let player1Turn = true
 
@@ -13,6 +14,7 @@ let board = [
 ]
 
 let winner =""
+gameStatusBox.innerHTML = "Player 1's Turn"
 
 
 const generateCircleElements =()=>{
@@ -143,6 +145,7 @@ function clickCircle(event){
 
     if (player1Turn == true)
     {
+        gameStatusBox.innerHTML = "player 2's Turn"
         circleToBeChanged.children[0].src= "./pinkCircle.svg"
         // connect4EmptyArray[bottomCircleId] = "player1"
         let firstIndex = bottomCircleId[2]
@@ -155,6 +158,7 @@ function clickCircle(event){
 
 
     else{
+        gameStatusBox.innerHTML = "player 1's Turn"
         circleToBeChanged.children[0].src= "./orangeCircle.svg"
         // connect4EmptyArray[bottomCircleId] = "player2"
         let firstIndex = bottomCircleId[2]
@@ -229,19 +233,34 @@ let gameStatusFun = (winner)=>{
     //return winner if we already have one
     if(winner!=""){
 
-     
-
-
         //add restart button when we have a winner
         let btn = document.createElement("button")
         btn.innerHTML ="Restart Game"
         btn.classList.add("button");
         document.body.appendChild(btn);
 
-           //dont allow user to click anymore
+        btn.addEventListener("click", Restart)
+
+
+
+        //show winner
+        gameStatusBox.innerHTML = "The winner is " + winner
+
+
+        //dont allow user to click anymore
            
 
 
+    }
+
+}
+
+function Restart(){
+    for (let r = 0; r < 6; r++) {
+        for (let c = 0; c < 7; c++) {
+            console.log(document.getElementById(r+"-"+c).children[0].src)
+            document.getElementById(`${r}-${c}`).children[0].src = "./circleElement.svg"
+        }
     }
 
 }
