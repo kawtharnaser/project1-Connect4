@@ -8,6 +8,10 @@ body{
     text-align: center;
 }
 
+.flex-container{
+display: flex;
+}
+
 h1{
     margin-top: 2%;
     text-align: center;
@@ -17,6 +21,7 @@ h1{
 
 .board {
     display: flex;
+    flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -24,25 +29,17 @@ h1{
 }
 
 .board > img {
-    width: 70%;
-}
+    width: 80%;
+    height: 80%;
+    margin-top: 0%;
 
-/* .board img{
-    width: 50%;
-    margin-top: 3%;
-    margin-left: 25%;
-    margin-right: 25%;
-    position: absolute;
-} */
+}
 
 
 .circlesContainer{
     border: 2px solid red;
     position: absolute;
-    width: 60%;
-    height: 90%;
-    /* margin-top: 3%; */
-    /* margin-left: 30%; */
+    width: 50%;
     align-self:center;
     justify-content: center;
     display: flex;
@@ -62,7 +59,7 @@ h1{
 }
 
 .circleElement{
-    margin: 5px;
+    margin: 3px;
     z-index: 1;
     width: 12%;
     height: 13%;
@@ -84,4 +81,17 @@ h1{
     padding-right: 10%;
     padding-top: 1%;
     padding-bottom: 1%;
+}
+
+
+.gameStatusBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: right;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    
 }

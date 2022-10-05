@@ -36,11 +36,14 @@ const generateCircleElements =()=>{
           imgElement.setAttribute("col", c);
           imgElement.setAttribute("row", r);
           circleElement.appendChild(imgElement);
-          imgElement.addEventListener("click", clickCircle);
+          
         //   console.log(circleElement);
           // step4: append it to an existing element (its container)
           circlesContainer.appendChild(circleElement);
         // }
+
+            imgElement.addEventListener("click", clickCircle);
+         
       }
     };
 }
@@ -225,13 +228,20 @@ function clickCircle(event){
 let gameStatusFun = (winner)=>{
     //return winner if we already have one
     if(winner!=""){
+
+     
+
+
+        //add restart button when we have a winner
         let btn = document.createElement("button")
         btn.innerHTML ="Restart Game"
         btn.classList.add("button");
         document.body.appendChild(btn);
-   
-      
-       
+
+           //dont allow user to click anymore
+           
+
+
     }
 
 }
