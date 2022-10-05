@@ -5,6 +5,7 @@
 
 body{
     background-color: #F5D391;
+    text-align: center;
 }
 
 h1{
@@ -65,4 +66,22 @@ h1{
     z-index: 1;
     width: 12%;
     height: 13%;
+}
+
+.button{
+    background-color: #EAD1D1;
+    color: black;
+    font-size: 150%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    margin: 0 auto;
+
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }

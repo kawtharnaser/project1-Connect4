@@ -175,8 +175,8 @@ function clickCircle(event){
             for (let r=5; r>= 0; r--){
                 // check horizontal locations for a win / player1
                 if (board[c+3] != undefined && board[r][c] == "player1" && board[r][c+1] == "player1" && board[r][c +2] == "player1" && board[r][c+3] == "player1"){
-                    console.log("player 1 wins!")
                     winner = "player1"
+                    console.log("player 1 wins!")
                 }
                 //check vertical locations for a win / player1
                 if (board[r+3] != undefined && board[r][c] == "player1" && board[r+1][c] == "player1" && board[r+2][c] == "player1" && board[r+3][c] == "player1"){
@@ -219,6 +219,21 @@ function clickCircle(event){
         
 
     }
+    return gameStatusFun(winner)
+}
+
+let gameStatusFun = (winner)=>{
+    //return winner if we already have one
+    if(winner!=""){
+        let btn = document.createElement("button")
+        btn.innerHTML ="Restart Game"
+        btn.classList.add("button");
+        document.body.appendChild(btn);
+   
+      
+       
+    }
+
 }
 
 
