@@ -170,10 +170,31 @@ function clickCircle(event){
     function winningConditions(){
         //check horizontal locations for a win
         for (let c=0; c < 7; c++){
-            for (let r=0; r< 6; r++){
-                if (board[r][c] == 'player1' && board[r][c+1] == 'player1' && board[r][c +2] == 'player1' && board[r][c+3] == 'player1'){
+            for (let r=5; r>= 0; r--){
+                // console.log('rc,' ,r, c)
+                if (board[c+3] != undefined && board[r][c] == 'player1' && board[r][c+1] == 'player1' && board[r][c +2] == 'player1' && board[r][c+3] == 'player1'){
                     console.log('player 1 wins!')
                 }
+                //check vertical locations for a win
+                if (board[r+3] != undefined && board[r][c] == "player1" && board[r+1][c] == "player1" && board[r+2][c] == "player1" && board[r+3][c] == "player1"){
+                    console.log("player1 wins")
+                }
+                //check for negative slope locations for a win
+                if (board[r+3] != undefined && board[r][c] == "player1" && board[r+1][c+1] == "player1" && board[r+2][c+2] == "player1" && board[r+3][c+3] == "player1"){
+                    console.log("player1 wins")
+                }
+                //check for positive slope locations for a win
+                if (board[c+3] != undefined && board[r-3] && board[r][c] == "player1" && board[r-1][c+1] == "player1" && board[r-2][c+2] == "player1" && board[r-3][c+3] == "player1"){
+                    console.log("player1 wins")
+                }
+
+
+                
+                //check for negative slope locations for a win
+                // if (board[c+3] && board[r][c] == "player1" && board[r-1][c+1] == "player1" && board[r-2][c+2] == "player1" && board[r-3][c+3] == "player1"){
+                //     console.log("player1 wins")
+                // }
+
             }
         }
         
