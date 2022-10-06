@@ -136,6 +136,29 @@ function clickCircle(event){
 }
 
 
+
+
+
+//if we already have a winner, no need to populate the board, so we turn off the event listener 
+if(winner!=""){
+    //looping through all circles
+    for (let r = 0; r < 6; r++) {
+        for (let c = 0; c < 7; c++) {
+
+    //getting each circle's id
+    circleElementId = `${c}-${r}`;
+    //getting the element that has the id
+    circleElement = document.getElementById(circleElementId)
+    //getting the 1st child of the circle div - the img
+    imgElement = circleElement.children[0]
+    //removing the event listener from the img
+    imgElement.removeEventListener("click", clickCircle)
+   
+        }
+    }
+}
+//if we don't have a winner enter here
+else{
 //now we check who's turn is it
     if (player1Turn == true)
     {
@@ -162,25 +185,9 @@ function clickCircle(event){
         board[firstIndex][secondIndex] = "player2"
         player1Turn = true
     }
+}
 
-    //if we already have a winner (winningConditions does not return null)
-    if(winner!=""){
-        //looping through all circles
-        for (let r = 0; r < 6; r++) {
-            for (let c = 0; c < 7; c++) {
-
-        //getting each circle's id
-        circleElementId = `${c}-${r}`;
-        //getting the element that has the id
-        circleElement = document.getElementById(circleElementId)
-        //getting the 1st child of the circle div - the img
-        imgElement = circleElement.children[0]
-        //removing the event listener from the img
-        imgElement.removeEventListener("click", clickCircle)
-       
-            }
-        }
-    }
+    
     //look if we have a winner
     winningConditions()
     
@@ -242,6 +249,7 @@ let gameStatusFun = (winner)=>{
         //add restart button when we have a winner
         let btn = document.createElement("button")
         //style it
+        // btn.id = 100
         btn.innerHTML ="Restart Game"
         btn.classList.add("button");
         //show it on the page
@@ -288,6 +296,8 @@ function Restart(){
     column6 = [0,1,2,3,4,5]
     column7 = [0,1,2,3,4,5]
 
+    // btn = document.getElementById(100)
+    // btn.removeEventListener("click", Restart)
 }
 
 
