@@ -256,12 +256,25 @@ let gameStatusFun = (winner)=>{
 }
 
 function Restart(){
-    for (let r = 0; r < 6; r++) {
-        for (let c = 0; c < 7; c++) {
-            console.log(document.getElementById(r+"-"+c).children[0].src)
-            document.getElementById(`${r}-${c}`).children[0].src = "./circleElement.svg"
+    // for (let r = 0; r < 6; r++) {
+    //     for (let c = 0; c < 7; c++) {
+    //         console.log(document.getElementById(r+"-"+c).children[0].src)
+    //         document.getElementById(r+"-"+c).children[0].src = "./circleElement.svg"
+    //     }
+    // }
+
+  for (let c = 0; c < 7; c++) {
+        for (let r = 0; r < 6; r++) {
+    bottomCircleId = c+"-"+r
+    console.log(bottomCircleId)
+    circleToBeChanged = document.getElementById(bottomCircleId)
+       
+    circleToBeChanged.children[0].src= "./circleElement.svg"
         }
     }
+    // let firstIndex = bottomCircleId[2]
+    // let secondIndex = bottomCircleId[0]
+    // board[firstIndex][secondIndex] = "player1"
 
 }
 
