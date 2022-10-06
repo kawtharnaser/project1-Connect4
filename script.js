@@ -2,8 +2,10 @@ let emptyBoard = document.getElementsByClassName("board")
 let circlesContainer = document.querySelector(".circlesContainer")
 let gameStatusBox = document.querySelector(".gameStatusBox")
 
+//always start with player1
 let player1Turn = true
 
+//an empty board to be populated with player1 and player2 tags according to the position of the coin
 let board = [
     ['','','','','','',''],
     ['','','','','','',''],
@@ -13,8 +15,12 @@ let board = [
     ['','','','','','',''],
 ]
 
+//initialize a winner variable, set to null for now
 let winner =""
+//show which player's turn it is, we always start by player 1
 gameStatusBox.innerHTML = "Player 1's Turn"
+
+
 
 
 const generateCircleElements =()=>{
@@ -44,19 +50,15 @@ const generateCircleElements =()=>{
           circlesContainer.appendChild(circleElement);
         // }
 
+
+        console.log(circleElement)
             imgElement.addEventListener("click", clickCircle);
-         
+
       }
     };
 }
 
-    // let column1 = ["0","7","14","21","28","35"]
-    // let column2 = ["1","8","15","22","29","36"]
-    // let column3 = ["2","9","16","23","30","37"]
-    // let column4 = ["3","10","17","24","31","38"]
-    // let column5 = ["4","11","18","25","32","39"]
-    // let column6 = ["5","12","19","26","33","40"]
-    // let column7 = ["6","13","20","27","34","41"]
+
 
     column1 = [0,1,2,3,4,5]
     column2 = [0,1,2,3,4,5]
@@ -65,25 +67,6 @@ const generateCircleElements =()=>{
     column5 = [0,1,2,3,4,5]
     column6 = [0,1,2,3,4,5]
     column7 = [0,1,2,3,4,5]
-
-
-    // let row1 = ["0","1","2","3","4","5"]
-    // let row2 = ["6","7","8","9","10","11"]
-    // let row3 = ["12","13","14","15","16","17"]
-    // let row4 = ["18","19","20","21","22","23"]
-    // let row5 = ["24","25","26","27","28","28"]
-    // let row6 = ["29","30","31","32","33","34"]
-    // let row7 = ["35","36","37","38","39","40","41"]
-
-
-    //create an array called connect4EmptyArray, with 42 empty elements
-    // let connect4EmptyArray = new Array(42);
-    // connect4EmptyArray.fill("");
-    // console.log(connect4EmptyArray)
-    // console.log(connect4EmptyArray.length)
-
-
-
 
 function clickCircle(event){
     console.log("you clicked on a circle")
@@ -169,6 +152,20 @@ function clickCircle(event){
     console.log('board',board)
 
 
+    if(winner!=""){
+        for (let r = 0; r < 6; r++) {
+            for (let c = 0; c < 7; c++) {
+
+        circleElementId = `${c}-${r}`;
+        circleElement = document.getElementById(circleElementId)
+        imgElement = circleElement.children[0]
+        console.log(circleElement)
+        console.log(imgElement)
+        imgElement.removeEventListener("click", clickCircle)
+       
+            }
+        }
+    }
     winningConditions()
     
     }
@@ -248,14 +245,6 @@ let gameStatusFun = (winner)=>{
 
 
         //dont allow user to click anymore
-        for (let c = 0; c < 7; c++) {
-            for (let r = 0; r < 6; r++) {
-        bottomCircleId = c+"-"+r
-        circleToBeChanged = document.getElementById(bottomCircleId)
-        
-        circleToBeChanged.removeEventListener("click", clickCircle)
-            }
-        }
            
 
 
@@ -275,6 +264,15 @@ function Restart(){
     }
 
     gameStatusBox.innerHTML ="player 1's Turn"
+    winner = ""
+    player1Turn = true
+    column1 = [0,1,2,3,4,5]
+    column2 = [0,1,2,3,4,5]
+    column3 = [0,1,2,3,4,5]
+    column4 = [0,1,2,3,4,5]
+    column5 = [0,1,2,3,4,5]
+    column6 = [0,1,2,3,4,5]
+    column7 = [0,1,2,3,4,5]
 
 }
 
@@ -289,15 +287,6 @@ console.log(circlesContainer)
 //CODE STARTS HERE 
 //waiting for dom to load before executing code
 document.addEventListener('DOMContentLoaded', ()=>{
-//Adding a function to generate all circles in the board through loop
+//Adding a function to generate all circles in the board through a loop 
 generateCircleElements()
-//adding an event listener to listen for clicks on circle elements
-// for(let i=0; i<circlesContainer.length; i++){
-//     circlesContainer[i].addEventListener("click", clickCircle)
-// }
-
-    // circlesContainer.addEventListener("click", clickCircle)
-
-
-
 })
