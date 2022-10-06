@@ -22,6 +22,7 @@ gameStatusBox.innerHTML = "Player 1's Turn"
 
 
 
+
 //this function gets called as soon as the DOM loads
 //this function is what generates the board 
 const generateCircleElements =()=>{
