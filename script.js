@@ -74,7 +74,7 @@ const generateCircleElements =()=>{
 
 
     //this function gets triggered when a user clicks on one of the board's circles
-function clickCircle(event){
+    function clickCircle(event){
     //initializing a variable that stores the value of the column of the circle that has been clicked, 0 here is the 1st index of the id c-r
     let clickedCircleId =event.target.id[0]
     //this variable gets the id of the last circle within the column
@@ -249,15 +249,15 @@ let gameStatusFun = (winner)=>{
         //add restart button when we have a winner
         let btn = document.createElement("button")
         //style it
-        // btn.id = 100
         btn.innerHTML ="Restart Game"
         btn.classList.add("button");
+
+        //give it an id
+        btn.id="100"
         //show it on the page
         document.body.appendChild(btn);
         //add an event listener to the button
         btn.addEventListener("click", Restart)
-
-
 
         //show winner in the gameStatus Box
         gameStatusBox.innerHTML = "The winner is " + winner
@@ -287,6 +287,13 @@ function Restart(){
     //clear the winner
     winner = ""
 
+    //remove the button
+    btn = document.getElementById(100)
+    btn.removeEventListener("click", Restart)
+    btn.remove()
+
+    
+
     //columns with occupied circles have been popped off the array, that is why we have to set new empty columns since we have new empty circles.
     column1 = [0,1,2,3,4,5]
     column2 = [0,1,2,3,4,5]
@@ -296,8 +303,13 @@ function Restart(){
     column6 = [0,1,2,3,4,5]
     column7 = [0,1,2,3,4,5]
 
-    // btn = document.getElementById(100)
-    // btn.removeEventListener("click", Restart)
+    //reset the board
+    board = [   ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],]
 }
 
 

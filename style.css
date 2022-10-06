@@ -25,7 +25,7 @@ h1{
     align-items: center;
     flex-direction: column;
     margin-top: 2%;
-    border: 2px solid yellowgreen;
+    /* border: 2px solid yellowgreen; */
     
 }
 
@@ -38,7 +38,8 @@ h1{
 
 
 .circlesContainer{
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    margin-top: 20px;
     position: absolute;
     width: 45%;
     align-self:center;
