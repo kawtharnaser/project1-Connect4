@@ -5,6 +5,7 @@ Connect4 is a fun strategic board game🎯 that you get to play with a friend. S
 
 
 link to my live site:
+https://kawtharnaser.github.io/project1-Connect4/
 
 
 My Approach / functionalities :
